@@ -24,10 +24,6 @@
 # install the mongodb org repo if necessary
 include_recipe 'sc-mongodb::mongodb_org_repo' if node['mongodb']['install_method'] == 'mongodb-org'
 
-# TODO: still need all of the tools?
-# yum_package[autoconf, bison, flex, gcc, gcc-c++, gettext, kernel-devel, make, m4, ncurses-devel, patch]
-build_essential 'build-tools'
-
 config_type = node['mongodb']['is_mongos'] ? 'mongos' : 'mongod'
 
 config = node['mongodb']['config'][config_type]

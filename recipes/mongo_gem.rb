@@ -23,6 +23,9 @@
 
 # The build-essential cookbook was not running during the compile phase, install gcc explicitly for rhel so native
 # extensions can be installed
+
+build_essential 'build-tools'
+
 gcc = package 'gcc' do
   action :nothing
   only_if { platform_family?('rhel') }
